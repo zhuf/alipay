@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>支付测试</title>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+</head>
+<body>
+<div class="layout">
+	<div class="pure-g">
+		<div class="pure-u-1">
+			<h3>捐款榜:</h3>
+			<table class="pure-table">
+				<thead>
+					<tr>
+						<td>#</td>
+						<td>id</td>
+						<td>name</td>
+						<td>money</td>
+						<td>created</td>
+						<td>status</td>
+						<td>remark</td>
+					</tr>
+				</thead>
+				<tbody>
+				{% for i in orders %}
+				<tr>
+					<td>{{ loop.index }}</td>
+					<td><a href="/order/{{ i._id|string }}">{{ i._id|string }}</a></td>
+					<td>{{ i.name }}</td>
+					<td>{{ i.money }}</td>
+					<td>{{ i.created }}</td>
+					<td>{{ i.status }}</td>
+					<td>{{ i.remark }}</td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+</div>
+<div class="main">
+	<h2>我要捐款</h2>
+
+
+	<form action="" method="post" class="pure-form">
+		<fieldset>
+			<div class="pure-control-group">
+				<label>您的姓名：</label>
+				<input type="text" name="name" required="required">
+			</div>
+			<div class="pure-control-group">
+				<label>捐款金额：</label>
+				<input type="text" name="money" required="required">
+			</div>
+			<div class="pure-control-group">
+				<label>留言：</label>
+				<input type="text" name="remark" >
+			</div>
+			<div class="pure-controls">
+				<button type="submit" class="pure-button pure-button-primary">施舍</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+</div>
+</div>
+</body>
+</html>
+
